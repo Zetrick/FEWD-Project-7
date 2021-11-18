@@ -1,0 +1,135 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto;
+    grid-template-areas:
+        "header"
+        "main-nav"
+        "main";
+
+    @media (min-width: $tablet-size) {
+        background-color: tomato;
+        grid-template-columns: 55px 1fr;
+        grid-template-areas:
+            "header header"
+            "main-nav main";
+    }
+}
+
+header {
+    grid-area: header;
+    display: flex;
+    flex: 1;
+    align-items: center;
+    background-color: rgb(116, 119, 186);
+    color: white;
+    padding-left: 1rem;
+
+    h1 {
+        font-weight: 200;
+        .bold {
+            font-weight: 400;
+        }
+        .tm {
+            font-size: .34em;
+            vertical-align: 1.6em;
+            letter-spacing: .1em;
+            font-weight: 300;
+        }
+
+    }
+}
+
+main {
+    grid-area: main;
+    display: grid;
+
+    @media (min-width: $tablet-size) {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "main-header main-header"
+            "alerts alerts"
+            "traffic traffic"
+            "daily-traffic mobile-users"
+            "social-stats social-stats"
+            "new-members new-members"
+            "recent-activity recent-activity"
+            "message message"
+            "settings settings"
+    }
+
+    @media (min-width: $desktop-size) {
+        grid-template-areas:
+            "main-header main-header"
+            "alerts alerts"
+            "traffic traffic"
+            "daily-traffic mobile-users"
+            "social-stats social-stats"
+            "new-members recent-activity"
+            "message settings"
+    }
+}
+
+.notification-header {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+
+    svg {
+        width: 25px;
+        fill: white;
+        border-right: 1px solid gray;
+    }
+
+    img {
+        border-radius: 50%;
+        width: 50px;
+    }
+}
+
+.main-nav {
+    grid-area: main-nav;
+    background-color: rgb(77, 76, 111);
+    fill: white;
+    height: 10%
+}
+
+.main-header {
+    grid-area: main-header;
+}
+
+.alerts {
+    grid-area: alerts;
+}
+
+.traffic {
+    grid-area: traffic;
+}
+
+.daily-traffic {
+    grid-area: daily-traffic;
+}
+
+.mobile-users {
+    grid-area: mobile-users;
+}
+
+.social-stats {
+    grid-area: social-stats;
+}
+
+.new-members {
+    grid-area: new-members;
+}
+
+.recent-activity {
+    grid-area: recent-activity;
+}
+
+.message {
+    grid-area: message;
+}
+
+.settings {
+    grid-area: settings;
+}

@@ -42,6 +42,10 @@ header {
 
 section:nth-child(n + 3) {
     padding: 30px 25px 30px 25px;
+
+    &:last-child{
+        padding-bottom: 0;
+    }
 }
 
 section:nth-child(n + 4) {
@@ -103,6 +107,8 @@ section:nth-child(n + 4) {
         @include tablet-mq {
             flex-direction: column;
             padding: 5px;
+            position: sticky;
+            top: 0;
 
             .svg-wrapper {
                 width: 30px;
@@ -182,8 +188,10 @@ main {
 
 #alerts {
     grid-area: alerts;
-
-    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    width: 90%;
     height: 40px;
     margin: 0 auto;
     background-color: $color-secondary;
@@ -191,7 +199,6 @@ main {
     text-align: center;
     line-height: 40px;
     border-radius: 10px;
-    max-width: 400px;
 
     &::after {
         content: "X";
@@ -335,6 +342,9 @@ main {
 
 .new-members {
     grid-area: new-members;
+    @include desktop-mq {
+        border-right: 2px solid lightgrey;
+    }
 }
 
 .member-container {
@@ -342,6 +352,15 @@ main {
     flex-direction: column;
     align-items: center;
     text-align: center;
+
+    @include tablet-mq {
+        flex-direction: row;
+        text-align: left;
+
+        p {
+            margin-left: auto;
+        }
+    }
 
     a {
         text-decoration: none;
@@ -358,6 +377,10 @@ main {
         border-radius: 50%;
         max-width: 80px;
         margin: 5px 0;
+
+        @include tablet-mq {
+            margin-right: 15px;
+        }
     }
 }
 
@@ -376,6 +399,16 @@ main {
 
     .see-more-arrow {
         display: none;
+        font-size: 1.5em;
+        color: $color-darkgray;
+        cursor: pointer;
+
+        @include tablet-mq {
+            display: inline;
+            &:hover {
+                color: lighten($color-darkgray, 15%);
+            }
+        }
     }
 }
 
@@ -402,6 +435,10 @@ button {
 .message {
     grid-area: message;
 
+    @include desktop-mq {
+        border-right: 2px solid lightgrey;
+    }
+
     .widget-container {
         display: flex;
         flex-direction: column;
@@ -418,7 +455,22 @@ button {
             background-color: $color-secondary;
         }
     }
+}
 
+select {
+    outline: none;
+    border: 2px solid $color-secondary;
+    color: $color-darkgray;
+    margin: 17px 0;
+    
+    &:active,
+    &:hover {
+        border: 2px solid lighten($color-secondary, 10%);
+    }
+
+    @include desktop-mq {
+        margin-top: auto;
+    }
 }
 
 .settings {
@@ -426,14 +478,18 @@ button {
     display: flex;
     flex-direction: column;
 
-    :nth-child(n)
-    {
-        margin-bottom: 20px;
+    p {
+        margin: 15px 0;
+
+        @include desktop-mq {
+            margin: 25px 0;
+        }
     }
 
     .settings-buttons {
         display: flex;
         justify-content: space-between;
+        margin-bottom: 30px;
 
         .button-primary {
             background-color: $color-secondary;

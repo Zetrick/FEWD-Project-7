@@ -1,8 +1,17 @@
 /* ******** ******** ******** ******** ******** ******** ******** ******** ******** ******** ******** ********
  *                                               VARIABLES                                                   *
  * ******** ******** ******** ******** ******** ******** ******** ******** ******** ******** ******** ********/
+//Media Query Sizes
 $tablet-size: 768px;
 $desktop-size: 1024px;
+
+//Colors
+$color-primary: rgb(77, 76, 111);
+$color-secondary: rgb(116, 119, 186);
+$color-tertiary: rgb(145, 199, 148);
+$color-lightgray: rgb(247, 247, 247);
+$color-darkgray: rgb(119, 119, 119);
+$color-darkdarkgray: rgb(75, 75, 75);
 
 
 /* ******** ******** ******** ******** ******** ******** ******** ******** ******** ******** ******** ********
@@ -47,7 +56,6 @@ html:focus-within {
 body {
     min-height: 100vh;
     text-rendering: optimizeSpeed;
-    line-height: 1.5;
 }
 
 /* A elements that don't have a class get default styles */
@@ -93,6 +101,17 @@ select {
 body {
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
+}
+
+h3 {
+    font-weight: 400;
+    font-size: .9em;
+    text-transform: uppercase;
+    margin-left: -9px;
+    margin-top: -10px;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+    color: rgb(80, 80, 80);
 }
 
 /* ******** ******** ******** ******** ******** ******** ******** ******** ******** ******** ******** ********

@@ -7,8 +7,7 @@
         "main-nav"
         "main";
 
-    @media (min-width: $tablet-size) {
-        background-color: tomato;
+    @include tablet-mq {
         grid-template-columns: 55px 1fr;
         grid-template-areas:
             "header header"
@@ -21,10 +20,9 @@ header {
     display: flex;
     flex: 1;
     align-items: center;
-    background-color: rgb(116, 119, 186);
+    background-color: $color-secondary;
     color: white;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding: .8em 1em;
 
     h1 {
         font-weight: 200;
@@ -42,6 +40,14 @@ header {
     }
 }
 
+section:nth-child(n + 3) {
+    padding: 30px 25px 30px 25px;
+}
+
+section:nth-child(n + 4) {
+    border-top: 2px solid lightgrey;
+}
+
 .notification-header {
     display: flex;
     align-items: center;
@@ -50,8 +56,15 @@ header {
 
     svg {
         fill: white;
-        border-right: 1px solid lightgray;
         padding-right: 1rem;
+    }
+
+    #notifications {
+        background-color: darkgray;
+        color: darkgray;
+        width: 1px;
+        height: 50px;
+        margin-left: 10px;
     }
 
     .svg-wrapper {
@@ -64,7 +77,7 @@ header {
     }
 
     .student-image-wrapper {
-        width: 2rem;
+        width: 3em;
     }
 
     p {
@@ -76,8 +89,10 @@ header {
 
 .main-nav {
     grid-area: main-nav;
-    background-color: rgb(77, 76, 111);
+    background-color: $color-primary;
     fill: white;
+    position: sticky;
+    top: 0;
 
     ul {
         display: flex;
@@ -85,20 +100,19 @@ header {
         padding: 15px 0;
         margin: 0 10%;
 
-        @media (min-width: $tablet-size)
-        {
+        @include tablet-mq {
             flex-direction: column;
             padding: 5px;
-            .svg-wrapper
-            {
+
+            .svg-wrapper {
                 width: 30px;
                 height: 30px;
                 margin-top: 25px;
             }
-            
+
         }
     }
-    
+
     .svg-wrapper {
         width: 40px;
         height: 40px;
@@ -110,7 +124,19 @@ main {
     grid-area: main;
     display: grid;
 
-    @media (min-width: $tablet-size) {
+    grid-template-areas:
+        "main-header"
+        "alerts"
+        "traffic"
+        "daily-traffic"
+        "mobile-users"
+        "social-stats"
+        "new-members"
+        "recent-activity"
+        "message"
+        "settings";
+
+    @include tablet-mq {
         grid-template-columns: 1fr 1fr;
         grid-template-areas:
             "main-header main-header"
@@ -124,7 +150,7 @@ main {
             "settings settings"
     }
 
-    @media (min-width: $desktop-size) {
+    @include desktop-mq {
         grid-template-areas:
             "main-header main-header"
             "alerts alerts"
@@ -138,18 +164,83 @@ main {
 
 .main-header {
     grid-area: main-header;
+    display: flex;
+    margin-bottom: 20px;
+
+    .headline {
+        font-weight: 300;
+        padding: 20px;
+    }
+
+    .tab {
+        background-color: $color-lightgray;
+        border-left: 2px lightgrey solid;
+        border-bottom: 2px lightgrey solid;
+        flex-grow: 1;
+    }
 }
 
-.alerts {
+#alerts {
     grid-area: alerts;
+
+    width: 70%;
+    height: 40px;
+    margin: 0 auto;
+    background-color: $color-secondary;
+    color: white;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 10px;
+    max-width: 400px;
+
+    &::after {
+        content: "X";
+        color: white;
+        right: 20;
+    }
 }
 
 .traffic {
     grid-area: traffic;
+    padding-left: 20px;
+
+    ul {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 10px;
+
+        li {
+            padding: 8px 12px;
+
+            @include tablet-mq {
+                padding: 8px 30px;
+            }
+        }
+    }
+
+    .selected {
+        background-color: $color-tertiary;
+        border-radius: 200px;
+        color: white;
+    }
+
+    .header-wrapper {
+
+        @include tablet-mq {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+    }
+
 }
 
 .daily-traffic {
     grid-area: daily-traffic;
+
+    @include tablet-mq {
+        border-right: 2px solid lightgrey;
+    }
 }
 
 .mobile-users {
@@ -158,20 +249,203 @@ main {
 
 .social-stats {
     grid-area: social-stats;
+    display: flex;
+    flex-direction: column;
+
+    @include tablet-mq {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+
+        h3 {
+            width: 100%;
+        }
+    }
+
+    .social-container {
+        display: flex;
+        flex: 1;
+        align-items: center;
+        background-color: $color-lightgray;
+        border-radius: 8px;
+        border: 2px solid lightgrey;
+        padding: 20px;
+
+        &:not(:last-child) {
+            margin-bottom: 20px;
+        }
+
+        @include tablet-mq {
+            padding: 10px;
+
+            &:not(:last-child) {
+                margin-bottom: 0px;
+                margin-right: 10px;
+            }
+        }
+    }
+
+    .social-image-wrapper {
+        background-color: $color-secondary;
+        padding: 20px;
+        border-radius: 50%;
+        width: 80px;
+        height: 80px;
+
+        @include tablet-mq {
+            padding: 13px;
+            width: 60px;
+            height: 60px;
+        }
+    }
+
+    .social-image {
+        fill: white;
+    }
+
+    .social-text {
+        margin-left: 20px;
+        padding-top: 3px;
+
+        @include tablet-mq {
+            margin-left: 10px;
+        }
+    }
+
+    .social-name {
+        color: $color-secondary;
+        font-size: 1.3em;
+        font-weight: 400;
+
+        @include tablet-mq {
+            font-size: 1.2em;
+        }
+    }
+
+    .social-count {
+        font-size: 2.7em;
+        color: $color-darkgray;
+
+        @include tablet-mq {
+            font-size: 2.4em;
+        }
+    }
+
 }
 
 .new-members {
     grid-area: new-members;
 }
 
+.member-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    a {
+        text-decoration: none;
+        color: $color-secondary;
+    }
+
+    &:not(:last-child) {
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+        border-bottom: 2px solid lightgrey;
+    }
+
+    img {
+        border-radius: 50%;
+        max-width: 80px;
+        margin: 5px 0;
+    }
+}
+
+
 .recent-activity {
     grid-area: recent-activity;
+
+    p {
+        color: $color-darkgray;
+    }
+
+    .activity {
+        color: $color-darkdarkgray;
+        font-weight: bolder;
+    }
+
+    .see-more-arrow {
+        display: none;
+    }
+}
+
+input,
+textarea,
+button,
+select {
+    padding: 15px;
+    background-color: $color-lightgray;
+    border-radius: 6px;
+    border: 1px solid rgb(190, 190, 190);
+
+    // color: rgb(210, 210, 210);
+    &::placeholder {
+        color: lighten($color: gray, $amount: 15%);
+    }
+}
+
+button {
+    color: white;
+    letter-spacing: 1px;
 }
 
 .message {
     grid-area: message;
+
+    .widget-container {
+        display: flex;
+        flex-direction: column;
+
+        :not(:last-child) {
+            margin-bottom: 20px;
+        }
+
+        textarea {
+            height: 150px;
+        }
+
+        button {
+            background-color: $color-secondary;
+        }
+    }
+
 }
 
 .settings {
     grid-area: settings;
+    display: flex;
+    flex-direction: column;
+
+    :nth-child(n)
+    {
+        margin-bottom: 20px;
+    }
+
+    .settings-buttons {
+        display: flex;
+        justify-content: space-between;
+
+        .button-primary {
+            background-color: $color-secondary;
+            margin-right: 20px;
+        }
+
+        .button-disabled {
+            background-color: rgb(153,153,153);
+        }
+        :nth-child(n)
+        {
+            flex: 1;
+        }
+    }
 }

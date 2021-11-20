@@ -265,9 +265,12 @@ main {
 
 #alerts {
   grid-area: alerts;
+}
+
+.alert-banner {
   display: flex;
   justify-content: space-between;
-  padding: 0 20px;
+  padding: 0 0 0 20px;
   width: 90%;
   height: 40px;
   margin: 0 auto;
@@ -278,10 +281,43 @@ main {
   border-radius: 10px;
 }
 
-#alerts::after {
-  content: "X";
-  color: white;
-  right: 20;
+.alert-banner p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.alert-banner-close {
+  width: 75px;
+  cursor: pointer;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background-color: #8284c1;
+}
+
+.alert-banner-close:hover {
+  background-color: #8c8ec6;
+}
+
+.alert-banner-close:active {
+  background-color: #6d70b7;
+}
+
+@keyframes whisk-away {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.widget-container-full {
+  width: 99%;
+}
+
+.widget-container-half {
+  width: 99%;
 }
 
 .traffic {
@@ -297,6 +333,7 @@ main {
 
 .traffic ul li {
   padding: 8px 12px;
+  cursor: pointer;
 }
 
 @media (min-width: 768px) {
@@ -581,12 +618,30 @@ select:active, select:hover {
 
 .settings p {
   margin: 15px 0;
+  width: 200px;
+  margin-right: 50px;
 }
 
 @media (min-width: 1024px) {
   .settings p {
     margin: 25px 0;
+    margin-right: 50px;
   }
+}
+
+.settings .toggle-switch-container {
+  display: flex;
+  align-items: center;
+}
+
+.settings .toggle-switch-container label {
+  width: 150px;
+  margin-right: auto;
+}
+
+.settings .toggle-switch-container .switch-candy a {
+  background-color: #7477ba;
+  outline: none;
 }
 
 .settings .settings-buttons {
@@ -616,5 +671,12 @@ select:active, select:hover {
   display: inline-block;
   margin-left: -28px;
   vertical-align: 18px;
+}
+
+button,
+select,
+.switch-candy,
+.social-container {
+  cursor: pointer;
 }
 /*# sourceMappingURL=main.css.map */

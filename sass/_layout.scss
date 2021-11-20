@@ -43,7 +43,7 @@ header {
 section:nth-child(n + 3) {
     padding: 30px 25px 30px 25px;
 
-    &:last-child {
+    &:last-child{
         padding-bottom: 0;
     }
 }
@@ -188,12 +188,9 @@ main {
 
 #alerts {
     grid-area: alerts;
-}
-
-.alert-banner {
     display: flex;
     justify-content: space-between;
-    padding: 0 0 0 20px;
+    padding: 0 20px;
     width: 90%;
     height: 40px;
     margin: 0 auto;
@@ -203,45 +200,11 @@ main {
     line-height: 40px;
     border-radius: 10px;
 
-    p {
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+    &::after {
+        content: "X";
+        color: white;
+        right: 20;
     }
-}
-
-.alert-banner-close {
-    width: 75px;
-    cursor: pointer;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    background-color: lighten($color: $color-secondary, $amount: 4%);
-
-    &:hover {
-        background-color: lighten($color-secondary, $amount: 7%);
-    }
-
-    &:active {
-        background-color: darken($color-secondary, $amount: 2%);
-    }
-}
-
-@keyframes whisk-away {
-    0% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0;
-    }
-}
-
-.widget-container-full {
-    width: 99%
-}
-
-.widget-container-half {
-    width: 99%;
 }
 
 .traffic {
@@ -255,7 +218,6 @@ main {
 
         li {
             padding: 8px 12px;
-            cursor: pointer;
 
             @include tablet-mq {
                 padding: 8px 30px;
@@ -380,7 +342,6 @@ main {
 
 .new-members {
     grid-area: new-members;
-
     @include desktop-mq {
         border-right: 2px solid lightgrey;
     }
@@ -444,7 +405,6 @@ main {
 
         @include tablet-mq {
             display: inline;
-
             &:hover {
                 color: lighten($color-darkgray, 15%);
             }
@@ -502,7 +462,7 @@ select {
     border: 2px solid $color-secondary;
     color: $color-darkgray;
     margin: 17px 0;
-
+    
     &:active,
     &:hover {
         border: 2px solid lighten($color-secondary, 10%);
@@ -520,29 +480,12 @@ select {
 
     p {
         margin: 15px 0;
-        width: 200px;
-        margin-right: 50px;
 
         @include desktop-mq {
             margin: 25px 0;
-            margin-right: 50px;
         }
     }
 
-    .toggle-switch-container {
-        display: flex;
-        align-items: center;
-
-        label {
-            width: 150px;
-            margin-right: auto;
-        }
-
-        .switch-candy a {
-            background-color: $color-secondary;
-            outline: none;
-        }
-    }
     .settings-buttons {
         display: flex;
         justify-content: space-between;
@@ -554,10 +497,10 @@ select {
         }
 
         .button-disabled {
-            background-color: rgb(153, 153, 153);
+            background-color: rgb(153,153,153);
         }
-
-        :nth-child(n) {
+        :nth-child(n)
+        {
             flex: 1;
         }
     }

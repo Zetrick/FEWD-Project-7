@@ -265,14 +265,13 @@ main {
 
 #alerts {
   grid-area: alerts;
-  width: 100vw;
 }
 
 .alert-banner {
   display: flex;
   justify-content: space-between;
   padding: 0 0 0 20px;
-  width: calc(90% - 75px);
+  width: 90%;
   height: 40px;
   margin: 0 auto;
   background-color: #7477ba;
@@ -618,29 +617,26 @@ select:active, select:hover {
 }
 
 .settings p {
-  margin-block-end: 10px !important;
-  margin-block-start: 10px !important;
-  word-wrap: break-word;
+  margin: 15px 0;
+  width: 200px;
+  margin-right: 50px;
 }
 
 @media (min-width: 1024px) {
   .settings p {
     margin: 25px 0;
+    margin-right: 50px;
   }
 }
 
 .settings .toggle-switch-container {
   display: flex;
-  flex-direction: column;
-  border: 2px solid #d0d0d0;
-  border-radius: 8px;
-  padding-bottom: 15px;
-  margin-bottom: 15px;
   align-items: center;
 }
 
 .settings .toggle-switch-container label {
-  width: 100px;
+  width: 150px;
+  margin-right: auto;
 }
 
 .settings .toggle-switch-container .switch-candy a {

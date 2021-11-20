@@ -14,6 +14,7 @@ const initial_line_data = {
     ],
     datasets: [
     {
+        label: "Number of Cars",
         data: [ 400, 1200, 2100, 1100,
             600, 300, 900, 1100,
             1100, 700, 800, 1400, 1900, 1000
@@ -83,22 +84,6 @@ let traffic_options = {
     backgroundColor: 'rgba(112, 104, 201, .5)',
     fill: true,
     aspectRatio: 2.5,
-    animation: false,
-    hover: {
-        animationDuration: 0, // duration of animations when hovering an item
-    },
-    responsiveAnimationDuration: 0, // animation duration after a resize,
-    animations: {
-        colors: false,
-        x: false
-    },
-    transitions: {
-        active: {
-            animation: {
-                duration: 0
-            }
-        }
-    }, // animation duration after a resize
     scales:
     {
         y:
@@ -110,7 +95,7 @@ let traffic_options = {
     {
         legend:
         {
-            display: false
+            display: true
         }
     }
 };
@@ -140,23 +125,7 @@ const daily_options = {
         {
             display: true
         }
-    },
-    animation: false,
-    hover: {
-        animationDuration: 0, // duration of animations when hovering an item
-    },
-    responsiveAnimationDuration: 0, // animation duration after a resize,
-    animations: {
-        colors: false,
-        x: false
-    },
-    transitions: {
-        active: {
-            animation: {
-                duration: 0
-            }
-        }
-    } // animation duration after a resize
+    }
 };
 
 // ---------------------------- Mobile Users Chart Data ---------------------------------------------------- //
@@ -186,22 +155,6 @@ const mobile_options = {
             {
                 boxWidth: 20,
                 fontStyle: 'bold'
-            }
-        }
-    },
-    animation: false,
-    hover: {
-        animationDuration: 0, // duration of animations when hovering an item
-    },
-    responsiveAnimationDuration: 0, // animation duration after a resize,
-    animations: {
-        colors: false,
-        x: false
-    },
-    transitions: {
-        active: {
-            animation: {
-                duration: 0
             }
         }
     }

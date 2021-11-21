@@ -98,9 +98,6 @@ h3 {
   color: #505050;
 }
 
-/* ******** ******** ******** ******** ******** ******** ******** ******** ******** ******** ******** ********
- *                                               MEDIA QUERIES                                               *
- * ******** ******** ******** ******** ******** ******** ******** ******** ******** ******** ******** ********/
 .grid-container {
   display: grid;
   grid-template-columns: 100%;
@@ -141,7 +138,13 @@ header h1 .tm {
 }
 
 section:nth-child(n + 3) {
-  padding: 30px 25px 30px 25px;
+  padding: 30px 13px 30px 13px;
+}
+
+@media (min-width: 360px) {
+  section:nth-child(n + 3) {
+    padding: 30px 25px 30px 25px;
+  }
 }
 
 section:nth-child(n + 3):last-child {
@@ -155,40 +158,41 @@ section:nth-child(n + 4) {
 .notification-header {
   display: flex;
   align-items: center;
+  justify-content: center;
   margin-left: auto;
-  justify-content: space-between;
+}
+
+.notification-header .svg-wrapper {
+  width: 57px;
+}
+
+.notification-header .student-image-wrapper {
+  width: 47px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.notification-header .svg-wrapper {
+  border-right: 1px solid #bababa;
+  padding-right: 20px;
 }
 
 .notification-header svg {
   fill: white;
-  padding-right: 1rem;
-}
-
-.notification-header #notifications {
-  background-color: darkgray;
-  color: darkgray;
-  width: 1px;
-  height: 50px;
-  margin-left: 10px;
-}
-
-.notification-header .svg-wrapper {
-  width: 2.5rem;
 }
 
 .notification-header img {
   border-radius: 50%;
-  margin-left: 1rem;
-}
-
-.notification-header .student-image-wrapper {
-  width: 3em;
 }
 
 .notification-header p {
-  font-weight: 300;
-  font-size: 1em;
-  margin-left: 2em;
+  font-size: smaller;
+}
+
+@media (min-width: 440px) {
+  .notification-header p {
+    font-size: larger;
+  }
 }
 
 .main-nav {
@@ -615,32 +619,25 @@ select:active, select:hover {
   grid-area: settings;
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
 .settings p {
-  margin-block-end: 10px !important;
-  margin-block-start: 10px !important;
+  flex: 1;
+  margin: 15px 0;
   word-wrap: break-word;
-}
-
-@media (min-width: 1024px) {
-  .settings p {
-    margin: 25px 0;
-  }
+  overflow: hidden;
 }
 
 .settings .toggle-switch-container {
   display: flex;
-  flex-direction: column;
-  border: 2px solid #d0d0d0;
-  border-radius: 8px;
-  padding-bottom: 15px;
-  margin-bottom: 15px;
   align-items: center;
+  justify-content: space-evenly;
+  max-width: 400px;
 }
 
-.settings .toggle-switch-container label {
-  width: 100px;
+.settings .toggle-switch-container label span span {
+  padding: 0 16px;
 }
 
 .settings .toggle-switch-container .switch-candy a {
@@ -668,13 +665,13 @@ select:active, select:hover {
 }
 
 .notification-dot {
-  height: 8px;
-  width: 8px;
+  height: 13px;
+  width: 13px;
   background-color: lightgreen;
   border-radius: 50%;
   display: inline-block;
-  margin-left: -28px;
-  vertical-align: 18px;
+  margin-left: -22px;
+  vertical-align: 33px;
 }
 
 button,

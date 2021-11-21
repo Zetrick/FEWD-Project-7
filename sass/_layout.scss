@@ -41,7 +41,11 @@ header {
 }
 
 section:nth-child(n + 3) {
-    padding: 30px 25px 30px 25px;
+    padding: 30px 13px 30px 13px;
+    
+    @media (min-width: 360px) {
+        padding: 30px 25px 30px 25px;
+    }
 
     &:last-child {
         padding-bottom: 0;
@@ -55,39 +59,38 @@ section:nth-child(n + 4) {
 .notification-header {
     display: flex;
     align-items: center;
+    justify-content: center;
     margin-left: auto;
-    justify-content: space-between;
 
-    svg {
-        fill: white;
-        padding-right: 1rem;
+    .svg-wrapper {
+        width: 57px;
     }
 
-    #notifications {
-        background-color: darkgray;
-        color: darkgray;
-        width: 1px;
-        height: 50px;
+    .student-image-wrapper {
+        width: 47px;
         margin-left: 10px;
+        margin-right: 10px;
     }
 
     .svg-wrapper {
-        width: 2.5rem;
+        border-right: 1px solid darken(lightgray, 10%);
+        padding-right: 20px;
+    }
+
+    svg {
+        fill: white;
     }
 
     img {
         border-radius: 50%;
-        margin-left: 1rem;
-    }
-
-    .student-image-wrapper {
-        width: 3em;
     }
 
     p {
-        font-weight: 300;
-        font-size: 1em;
-        margin-left: 2em;
+        font-size: smaller;
+
+        @media (min-width: 440px) {
+            font-size: larger;
+        }
     }
 }
 
@@ -518,29 +521,25 @@ select {
     grid-area: settings;
     display: flex;
     flex-direction: column;
+    justify-content: center;
 
     p {
-        margin-block-end: 10px !important;
-        margin-block-start: 10px !important;
+        flex: 1;
+        margin: 15px 0;
         word-wrap: break-word;
-
-        @include desktop-mq {
-            margin: 25px 0;
-            // margin-right: 50px;
-        }
+        overflow: hidden;
     }
 
     .toggle-switch-container {
         display: flex;
-        flex-direction: column;
-        border: 2px solid lighten($color-darkgray, 35%);
-        border-radius: 8px;
-        padding-bottom: 15px;
-        margin-bottom: 15px;
         align-items: center;
+        justify-content: space-evenly;
+        max-width: 400px;
 
         label {
-            width: 100px;
+            span span {
+                padding: 0 16px;
+            }
         }
 
         .switch-candy a {

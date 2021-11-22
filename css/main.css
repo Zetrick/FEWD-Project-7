@@ -175,10 +175,16 @@ section:nth-child(n + 4) {
 .notification-header .svg-wrapper {
   border-right: 1px solid #bababa;
   padding-right: 20px;
+  cursor: pointer;
 }
 
 .notification-header svg {
   fill: white;
+}
+
+.notification-header .wiggle-animate {
+  animation: notification-bell ease-in-out;
+  animation-duration: .5s;
 }
 
 .notification-header img {
@@ -269,16 +275,16 @@ main {
 
 #alerts {
   grid-area: alerts;
-  width: 100vw;
+  width: 85vw;
+  margin: 0 auto;
 }
 
 .alert-banner {
   display: flex;
   justify-content: space-between;
-  padding: 0 0 0 20px;
-  width: calc(90% - 75px);
-  height: 40px;
   margin: 0 auto;
+  padding: 0 0 0 20px;
+  height: 40px;
   background-color: #7477ba;
   color: white;
   text-align: center;
@@ -306,15 +312,6 @@ main {
 
 .alert-banner-close:active {
   background-color: #6d70b7;
-}
-
-@keyframes whisk-away {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
 }
 
 .widget-container-full {
@@ -672,6 +669,9 @@ select:active, select:hover {
   display: inline-block;
   margin-left: -22px;
   vertical-align: 33px;
+  color: black;
+  font-size: .7em;
+  text-align: center;
 }
 
 button,
@@ -679,5 +679,32 @@ select,
 .switch-candy,
 .social-container {
   cursor: pointer;
+}
+
+@keyframes whisk-away {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes notification-bell {
+  20% {
+    transform: rotate(-15deg) scale(1.1);
+  }
+  40% {
+    transform: rotate(15deg) scale(1.2);
+  }
+  60% {
+    transform: rotate(-15deg) scale(1.2);
+  }
+  80% {
+    transform: rotate(15deg) scale(1.1);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
 }
 /*# sourceMappingURL=main.css.map */

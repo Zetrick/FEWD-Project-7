@@ -6,6 +6,7 @@ let traffic_chart_ul = document.querySelector(".traffic-chart-nav");
 let user_field = document.querySelector("#user-field");
 let message_field = document.querySelector("#message-field");
 let btn_send_message = document.querySelector("#send");
+let notification_bell = document.querySelector(".notification-header .svg-wrapper");
 
 // Alert Banner Logic
 alert_banner.innerHTML =
@@ -24,6 +25,14 @@ alert_banner.addEventListener('click', (event) => {
             alert_banner.style.display = "none"
         }, 500);
     }
+});
+
+// Notifican Bell wiggle
+notification_bell.addEventListener('mouseenter', (event) => {
+    notification_bell.querySelector("svg").classList = "";
+    setTimeout(() => {
+        notification_bell.querySelector("svg").classList.add("wiggle-animate");
+    }, 1);
 });
 
 function update_chart_data(incoming_data) {

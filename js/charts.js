@@ -97,6 +97,9 @@ let traffic_options = {
         {
             display: true
         }
+    },
+    animation: {
+        duration: 0
     }
 };
 

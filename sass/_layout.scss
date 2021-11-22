@@ -75,10 +75,16 @@ section:nth-child(n + 4) {
     .svg-wrapper {
         border-right: 1px solid darken(lightgray, 10%);
         padding-right: 20px;
+        cursor: pointer;
     }
 
     svg {
         fill: white;
+    }
+
+    .wiggle-animate {
+        animation: notification-bell ease-in-out;
+        animation-duration: .5s;
     }
 
     img {
@@ -191,16 +197,16 @@ main {
 
 #alerts {
     grid-area: alerts;
-    width: 100vw;
+    width: 85vw;
+    margin: 0 auto;
 }
 
 .alert-banner {
     display: flex;
     justify-content: space-between;
-    padding: 0 0 0 20px;
-    width: calc(90% - 75px);
-    height: 40px;
     margin: 0 auto;
+    padding: 0 0 0 20px;
+    height: 40px;
     background-color: $color-secondary;
     color: white;
     text-align: center;
@@ -227,16 +233,6 @@ main {
 
     &:active {
         background-color: darken($color-secondary, $amount: 2%);
-    }
-}
-
-@keyframes whisk-away {
-    0% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0;
     }
 }
 

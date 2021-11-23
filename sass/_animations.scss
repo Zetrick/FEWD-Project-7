@@ -26,3 +26,9 @@
         transform: rotate(0deg);
     }
 }
+
+@keyframes menu-item-grow {
+    100% {
+        transform: scale(1.1);
+    }
+}

@@ -120,10 +120,12 @@ header {
   background-color: #7477ba;
   color: white;
   padding: .8em 1em;
+  height: 75px;
 }
 
 header h1 {
   font-weight: 200;
+  font-size: clamp(22px, 6vw, 32px);
 }
 
 header h1 .bold {
@@ -155,6 +157,10 @@ section:nth-child(n + 4) {
   border-top: 2px solid lightgrey;
 }
 
+.svg-wrapper {
+  cursor: pointer;
+}
+
 .notification-header {
   display: flex;
   align-items: center;
@@ -162,24 +168,52 @@ section:nth-child(n + 4) {
   margin-left: auto;
 }
 
+.notification-header .notification-list ul {
+  display: none;
+  position: absolute;
+  top: 60px;
+  right: 8%;
+  z-index: 1;
+}
+
+.notification-header .notification-list ul li {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: #FF6F59;
+  border-radius: 3px;
+  padding: 10px;
+  margin: 5px 0;
+  font-weight: 400;
+}
+
+.notification-header .notification-list ul li span {
+  border: 2px solid white;
+  border-radius: 50%;
+  width: 23px;
+  height: 23px;
+  margin-left: 10px;
+  text-align: center;
+  cursor: pointer;
+  color: white;
+  float: right;
+  transition: transform .2s;
+}
+
+.notification-header .notification-list ul li span:hover {
+  transform: scale(1.1);
+}
+
 .notification-header .svg-wrapper {
   width: 57px;
+  border-right: 1px solid #bababa;
+  padding-right: 20px;
 }
 
 .notification-header .student-image-wrapper {
   width: 47px;
   margin-left: 10px;
   margin-right: 10px;
-}
-
-.notification-header .svg-wrapper {
-  border-right: 1px solid #bababa;
-  padding-right: 20px;
-  cursor: pointer;
-}
-
-.notification-header svg {
-  fill: white;
 }
 
 .notification-header .wiggle-animate {
@@ -199,6 +233,10 @@ section:nth-child(n + 4) {
   .notification-header p {
     font-size: larger;
   }
+}
+
+svg {
+  fill: white;
 }
 
 .main-nav {
@@ -324,7 +362,7 @@ main {
 
 .traffic {
   grid-area: traffic;
-  padding-left: 20px;
+  padding-left: 5px;
 }
 
 .traffic ul {
@@ -554,6 +592,7 @@ select {
   background-color: #f7f7f7;
   border-radius: 6px;
   border: 1px solid #bebebe;
+  margin-bottom: 20px;
 }
 
 input::placeholder,
@@ -561,6 +600,45 @@ textarea::placeholder,
 button::placeholder,
 select::placeholder {
   color: #a6a6a6;
+}
+
+.autocomplete {
+  position: relative;
+  display: inline-block;
+}
+
+input[type=text] {
+  width: 100%;
+}
+
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 72%;
+  left: 0;
+  right: 0;
+}
+
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff;
+  border-bottom: 1px solid #d4d4d4;
+}
+
+.autocomplete-items div:hover {
+  /*when hovering an item:*/
+  background-color: #e9e9e9;
+}
+
+.autocomplete-active {
+  /*when navigating through the items using the arrow keys:*/
+  background-color: #7477ba !important;
+  color: #ffffff;
 }
 
 button {
@@ -581,10 +659,6 @@ button {
 .message .widget-container {
   display: flex;
   flex-direction: column;
-}
-
-.message .widget-container :not(:last-child) {
-  margin-bottom: 20px;
 }
 
 .message .widget-container textarea {
@@ -664,6 +738,7 @@ select:active, select:hover {
 .notification-dot {
   height: 13px;
   width: 13px;
+  line-height: 13px;
   background-color: lightgreen;
   border-radius: 50%;
   display: inline-block;
@@ -679,6 +754,30 @@ select,
 .switch-candy,
 .social-container {
   cursor: pointer;
+}
+
+.menu-item-animation {
+  transition: transform .2s ease-in-out;
+}
+
+.menu-item-animation:hover {
+  transform: scale(1.1);
+}
+
+.button-primary,
+.button-disabled {
+  transition: transform .2s;
+}
+
+.button-primary:hover,
+.button-disabled:hover {
+  transform: scale(1.02);
+}
+
+.button-primary:active,
+.button-disabled:active {
+  transition: transform .05s;
+  transform: scale(1);
 }
 
 @keyframes whisk-away {
@@ -705,6 +804,12 @@ select,
   }
   100% {
     transform: rotate(0deg);
+  }
+}
+
+@keyframes menu-item-grow {
+  100% {
+    transform: scale(1.1);
   }
 }
 /*# sourceMappingURL=main.css.map */

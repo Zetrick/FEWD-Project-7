@@ -23,6 +23,7 @@ $color-darkdarkgray: rgb(75, 75, 75);
 *::before,
 *::after {
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 /* Remove default margin */

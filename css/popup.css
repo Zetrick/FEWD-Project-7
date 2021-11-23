@@ -201,7 +201,7 @@ document {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     width: 100%;
-    height: calc(100% - 108px);
+    /* height: calc(100%-108px); */
     margin: 0;
     padding: 0;
     border-style: none;
@@ -249,7 +249,7 @@ document {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     width: 100%;
-    height: calc(100% - 108px);
+    /* height: calc(100%-108px); */
     margin: 0;
     padding: 0;
     border-style: none;
@@ -287,7 +287,7 @@ document {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     width: 100%;
-    height: calc(100% - 108px);
+    /* height: calc(100%-108px); */
     margin: 0;
     padding: 0;
     border-style: none;

@@ -435,6 +435,11 @@ main {
   border-radius: 8px;
   border: 2px solid lightgrey;
   padding: 20px;
+  transition: transform .3s;
+}
+
+.social-stats .social-container:hover {
+  transform: scale(1.02);
 }
 
 .social-stats .social-container:not(:last-child) {
@@ -517,9 +522,16 @@ main {
 
 .member-container {
   display: flex;
+  cursor: pointer;
   flex-direction: column;
   align-items: center;
   text-align: center;
+}
+
+.member-container:hover img {
+  transition: transform .2s, box-shadow .2s;
+  transform: scale(1.09);
+  box-shadow: 4px 4px 9px #b6b6b6;
 }
 
 @media (min-width: 768px) {

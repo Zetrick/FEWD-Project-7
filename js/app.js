@@ -259,10 +259,9 @@ btn_send_message.addEventListener('click', (event) => {
         show_popup("Incomplete Form Fields", "Please fill out message field before sending", "alert", "red");
     } else {
         show_popup("Sent!", `Message successfully sent to: ${user_field.value}`, "alert", "purple");
+        user_field.value = '';
+        message_field.value = '';
     }
-
-    user_field.value = '';
-    message_field.value = '';
 });
 
 //Save Button Logic
